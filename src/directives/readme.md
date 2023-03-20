@@ -1,0 +1,1 @@
+- hammerjs.ts 依赖hammer.js 优化移动端点击效果，增加触摸 手势等效果

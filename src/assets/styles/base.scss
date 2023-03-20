@@ -1,0 +1,19 @@
+// @use "@/assets/theme/base.scss" as *; 
+
+// $primary-color:  linear-gradient(60deg, #020027, #c20008);
+$primary-color: linear-gradient(20deg, #020027 40%, orange 45%, yellow 50%, green 75%, blue 100%);
+
+
+.primary-text {
+  color: #020027; // background-clip 不被支持时 后备颜色
+}
+
+@supports (-webkit-background-clip: text) {
+
+  .primary-text {
+    background-image: $primary-color;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}

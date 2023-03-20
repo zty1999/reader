@@ -1,0 +1,57 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+  /* 配色方案 支持浏览器系统配色 */
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+
+@media screen and (max-width:375px) {
+  :root {
+    font-size: calc(100vw / 3.75);
+  }
+}
+
+@media screen and (min-width:376px) and (max-width:1920px) {
+  :root {
+    /* 在1920设计稿中1rem等于100px，.32rem等于32px */
+    font-size: calc(100vw / 19.2);
+  }
+}
+
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+
+}
+
+
+
+p {
+  margin: 0;
+}
+
+
+#app {
+  width: 100%;
+  height: 100%;
+  /* min-width: 1200px; */
+}
