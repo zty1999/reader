@@ -20,9 +20,6 @@ export default defineConfig({
     }),
     // 按需自动导入 API
     AutoImport({
-      // Auto import functions from Vue, e.g. ref, reactive, toRef...
-      // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
-      // imports: ['vue'],
       // targets to transform
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
@@ -33,26 +30,29 @@ export default defineConfig({
       // global imports to register
       imports: [
         // presets
-        'vue',
+        'vue',   // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
         'vue-router',
         // custom
-        // {
-        //   '@vueuse/core': [
-        //     // named imports
-        //     'useMouse', // import { useMouse } from '@vueuse/core',
-        //     // alias
-        //     ['useFetch', 'useMyFetch'], // import { useFetch as useMyFetch } from '@vueuse/core',
-        //   ],
-        //   'axios': [
-        //     // default imports
-        //     ['default', 'axios'], // import { default as axios } from 'axios',
-        //   ],
-        //   '[package-name]': [
-        //     '[import-names]',
-        //     // alias
-        //     ['[from]', '[alias]'],
-        //   ],
-        // },
+        {
+          // '@vueuse/core': [
+          //   // named imports
+          //   'useMouse', // import { useMouse } from '@vueuse/core',
+          //   // alias
+          //   ['useFetch', 'useMyFetch'], // import { useFetch as useMyFetch } from '@vueuse/core',
+          // ],
+          // 自定义引入  Elmessage => message
+          'element-plus': [
+            // import { Elmessage as message } from 'element-plus',
+            //auto-imports.d.ts:  const message: typeof import('element-plus')['Elmessage']
+            ['ElMessage', 'message'],
+            ['ElMessageBox', 'messageBox'],
+          ],
+          // '[package-name]': [
+          //   '[import-names]',
+          //   // alias
+          //   ['[from]', '[alias]'],
+          // ],
+        },
       ],
       resolvers: []
       // dts: resolve(pathSrc, 'auto-imports.d.ts'),

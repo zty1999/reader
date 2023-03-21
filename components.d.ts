@@ -3,10 +3,11 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import '@vue/runtime-core'
 
-export { }
+export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Animation: typeof import('./src/components/animation/animation.vue')['default']
     BaseInput: typeof import('./src/components/input/base-input.tsx')['default']
     Image: typeof import('./src/components/image/src/image.vue')['default']
     Input: typeof import('./src/components/input/input.tsx')['default']

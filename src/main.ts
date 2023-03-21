@@ -1,9 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-
+import { setupStore } from '@/store';
 import { router, setupRouter } from '@/router';
-
+import { setupTouch } from './directives/hammerjs';
+import '@/utils/index'
 
 // CSS base style sheet
 import '@/assets/styles/normalize.css';
@@ -14,11 +15,11 @@ import './style.css'
 
 
 
-
 const app = createApp(App);
 
 
-
+// Configure store
+setupStore(app)
 
 // Configure routing
 // 配置路由
@@ -30,8 +31,7 @@ setupTouch(app);
 
 
 
-import '@/utils/index'
-import { setupTouch } from './directives/hammerjs';
+
 
 
 
