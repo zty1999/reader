@@ -1,21 +1,13 @@
 // service统一出口
 import SKRequest from './request';
-import type { AxiosResponse } from 'axios';
 import type { SKRequestConfig, Result } from './types';
-import { PARSE_BASE_URL } from './request/config';
+import {BASE_URL} from './request/config'
 
-
-function createParseAxios() {
+function createAxios() {
   let reqConfig: SKRequestConfig = {};
   return new SKRequest({
-    baseURL: PARSE_BASE_URL,
+    baseURL: BASE_URL,
     timeout: 10 * 1000, 
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Parse-Application-Id': 'spark',
-      'X-Parse-REST-API-Key': 'spark666',
-      'X-Parse-Master-Key': 'mulean666',// schma等相关请求需要设置 masterkey
-    },
     showLoading: false,
     interceptors: {
       requestInterceptor: (config) => {
@@ -45,7 +37,7 @@ function createParseAxios() {
 }
 function createAuthAxios() {
   return new SKRequest({
-    baseURL: PARSE_BASE_URL,
+    baseURL: BASE_URL,
     timeout: 10 * 1000,
     showLoading: false,
     interceptors: {
@@ -81,7 +73,7 @@ function createAuthAxios() {
   });
 }
 
-export const http = createParseAxios();
+export const http = createAxios();
 export const authHttp = createAuthAxios();
 
 
